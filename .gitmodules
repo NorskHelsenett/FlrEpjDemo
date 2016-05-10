@@ -1,0 +1,4 @@
+[submodule "Submodules/NHNDtoContracts"]
+	path = Submodules/NHNDtoContracts
+	url = https://github.com/NorskHelsenett/NHNDtoContracts.git
+	branch = master
