@@ -4,17 +4,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{328C540B-B957-4770-A310-A3ED2331373F}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <ProjectGuid>{32712997-8A21-41AE-A911-BC265AB26B30}</ProjectGuid>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>FlrEpjDemo.Console</RootNamespace>
-    <AssemblyName>FlrEpjDemo.Console</AssemblyName>
+    <RootNamespace>FlrEpjDemo.Lib</RootNamespace>
+    <AssemblyName>FlrEpjDemo.Lib</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -24,7 +22,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -37,12 +34,11 @@
       <HintPath>..\packages\ServiceBus.v1_1.1.0.5\lib\net40-full\Microsoft.ServiceBus.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Microsoft.WindowsAzure.Configuration, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.WindowsAzure.ConfigurationManager.2.0.0.0\lib\net40\Microsoft.WindowsAzure.Configuration.dll</HintPath>
+    <Reference Include="Microsoft.WindowsAzure.Configuration, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.WindowsAzure.ConfigurationManager.3.2.1\lib\net40\Microsoft.WindowsAzure.Configuration.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
-    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
@@ -54,30 +50,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Examples\CollectingEvents.cs" />
-    <Compile Include="Examples\ContractRepository.cs" />
-    <Compile Include="Examples\GetPatientlists.cs" />
-    <Compile Include="Examples\ReceiveEvents.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="EventNameMissingException.cs" />
+    <Compile Include="FlrEventManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
-    <None Include="packages.config" />
+    <Compile Include="UnknownFlrEventNameException.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Submodules\NHNDtoContracts\src\NHN.DtoContracts\NHN.DtoContracts\NHN.DtoContracts.csproj">
       <Project>{91DF12D2-BFBC-4D81-B794-00FA6B64BC39}</Project>
       <Name>NHN.DtoContracts</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Submodules\NHNDtoContracts\src\NHN.DtoContracts\NHN.WcfClientFactory\NHN.WcfClientFactory.csproj">
-      <Project>{FD9D5FE6-AB59-4B6D-9481-CB029F5C11F6}</Project>
-      <Name>NHN.WcfClientFactory</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\FlrEpjDemo.Lib\FlrEpjDemo.Lib.csproj">
-      <Project>{32712997-8a21-41ae-a911-bc265ab26b30}</Project>
-      <Name>FlrEpjDemo.Lib</Name>
-    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
